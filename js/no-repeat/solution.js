@@ -1,9 +1,8 @@
 function noRepeat(string) {
-    let splitArray = string.split('');
     let res = [];
 
-    for(let el of splitArray){
-        if(el !== res[res.length - 1]){ res.push(el)}
+    for(let el of string){
+        if(el !== res[res.length - 1]){ res.push(el); }
     }
 
     return res;
@@ -12,4 +11,4 @@ function noRepeat(string) {
 
 console.log(noRepeat('AAAABBBCCDDAABBB'));
 console.log(noRepeat('ABBCcAD'));
-console.log(noRepeat('1223377377'));
+console.log(noRepeat(['1','2','2','3','3']));
