@@ -38,7 +38,7 @@ console.log(shape.perimeter());
 
 // write delay function implementation
 
-delay(5000).then(() => console.log('Hello !'));
+delay(500).then(() => console.log('Hello !'));
 
 
 function delay(interval){
@@ -57,8 +57,58 @@ function delay(interval){
             process.stdout.write(Array(leftOver).fill(6).reduce((acc) => {
                 return acc+'.';
             },'') + '\r');
-            progressCount++;
-            
+            progressCount++;        
         }, 300)
     }) 
 }
+
+
+// write polifill promiseAll
+
+Promise.promiseAll = (promices) => {
+    return new Promise(resolveMain => {
+        let resolvedNumber = 0;
+        let result = [];
+        for(let i = 0; i < promices.length; i++) {
+            promices[i].then((val) => {
+                resolvedNumber++;
+                result[i] = val;
+                if(resolvedNumber === promices.length) {
+                    resolveMain(result);
+                }
+            })
+        }
+    })
+}
+
+function fetch2(number, delay) {
+    return new Promise(res => {
+        setTimeout(() => {
+            res(number);
+        }, delay)
+    }) 
+}
+
+Promise.all(
+    [
+        Promise.resolve(1),
+        fetch2(20, 5000),
+        fetch2(30, 2000),
+        fetch2(40, 3000),
+        Promise.resolve(10),
+    ]
+).then(result => {
+    console.log(result,  ' = [1, 20, 30, 40, 10]')
+})
+
+Promise.promiseAll(
+    [
+        Promise.resolve(1),
+        fetch2(20, 5000),
+        fetch2(30, 2000),
+        fetch2(40, 3000),
+        Promise.resolve(10),
+    ]
+).then(result => {
+    console.log(result,  ' = [1, 20, 30, 40, 10]')
+})
