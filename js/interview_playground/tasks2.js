@@ -23,3 +23,14 @@ console.log(7);
 // what does it print?
 
 // 1,2,5,7,3,4,6,готово!
+
+
+// what will i print
+
+let i = 0;
+
+while(i++ < 10) {
+    setTimeout(() => {
+        console.log(i);
+    },0)
+}

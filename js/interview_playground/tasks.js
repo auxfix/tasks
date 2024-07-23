@@ -112,3 +112,4 @@ Promise.promiseAll(
 ).then(result => {
     console.log(result,  ' = [1, 20, 30, 40, 10]')
 })
+
