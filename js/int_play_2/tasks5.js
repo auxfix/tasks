@@ -1,4 +1,4 @@
-// faltterm array and calculate sum
+// flattern array and calculate sum
 const array = [1, 1, [1, [1, 2], 1] , [1]]
 
 const sum = (arr) => {
@@ -17,4 +17,16 @@ const sum = (arr) => {
 
 }
 
-console.log(sum(array)) // 8
+const sumRec = (el) => {
+    if(Array.isArray(el)) {    
+        return el.reduce((acc, item, _) => {
+            acc += sumRec(item);
+            return acc;
+        },0)     
+    } else {
+        return el; 
+    }
+}
+
+console.log(sum(array.slice())) // 8
+console.log(sumRec(array.slice())) // 8
