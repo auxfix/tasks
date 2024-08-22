@@ -10,7 +10,12 @@ async function retryFetch(url, { retryFetch, timeout }) {
 
     function timoutFetch(url, timeout) {
         return Promise.race([
-            fetch(url).then(res => res.json()),
+            fetch(url).then(res => {
+                if (!res.ok) {
+                    throw new Error(`Network response was not ok: ${res.statusText}`);
+                }
+                return res.json()
+            }),
             new Promise((_, reject) => { setTimeout(() => reject(new Error('fetch timout')), timeout) })
         ])
     }
@@ -21,7 +26,7 @@ async function retryFetch(url, { retryFetch, timeout }) {
         try {
             return await timoutFetch(url, timeout)
         } catch(err) {
-            console.log(err)
+            console.log(err.message)
             lastError = err;
         }
     }
@@ -30,5 +35,5 @@ async function retryFetch(url, { retryFetch, timeout }) {
 
 }
 
-retryFetch('http://localhost:3000', { retryFetch: 5, timeout: 3000 }).then(res => { console.log('we ended up with:', res); });
+retryFetch('http://localhost:3000', { retryFetch: 5, timeout: 2000 }).then(res => { console.log('we ended up with:', res.message || res); });
 

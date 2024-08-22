@@ -5,8 +5,8 @@ const port = 3000; // Configure your port
 let rejectionCount = 0;
 
 // Set how many times requests will be rejected before returning 200
-const maxRejections = 4;
-const responseTimeout = 2000; // Set your response timeout in milliseconds
+const maxRejections = 3;
+const responseTimeout = 1000; // Set your response timeout in milliseconds
 
 app.use((req, res, next) => {
   // Implement response timeout
@@ -19,11 +19,13 @@ app.get('/', (req, res) => {
   if (rejectionCount < maxRejections) {
     rejectionCount++;
     console.log('reject');
-    res.status(503).send('Service Unavailable');
+    res.setTimeout(responseTimeout, () => { 
+      res.status(503).json({ status: 'Service Unavailable'});
+    }) 
   } else {
     res.setTimeout(responseTimeout, () => {
         console.log('ok');
-        res.status(200).send('ок');
+        res.status(200).json({ status: 'OK'});
     });
   }
 });
@@ -31,4 +33,5 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
   console.log(`Configured to reject the first ${maxRejections} requests`);
+  console.log(`Response delay ${responseTimeout} ms`);
 });
