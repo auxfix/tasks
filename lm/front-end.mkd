@@ -257,14 +257,14 @@ JSX - использование удаленного микрофронтенд
 // Загрузка и использование ремоут-компонента
 const RemoteButton = React.lazy(() =&gt; import("remoteApp/Button"));
 
-const App = () =&gt; (
-    &lt;div&gt;
-      &lt;h1&gt;Host Application&lt;/h1&gt;
-      &lt;react.suspense fallback="{&amp;lt;div"&gt;Loading...&lt;/div&gt;}&gt;
-        &lt;remotebutton&gt;
-      
-    
-);
+const App = () => (
+    <div>
+      <h1>Host Application</h1>
+      <React.Suspense fallback={<div>Loading...</div>}>
+        <RemoteButton />
+      </React.Suspense>
+    </div>
+  );
 ```
 
 ## 16. DevOps: Jenkins, Docker, Kubernetes
