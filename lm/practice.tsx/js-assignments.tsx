@@ -45,9 +45,9 @@ const fetchUrl = (url) => {
   }
   
   
-  console.log(replace("Hello World One Time", 'One', "Two"));
-  // Result: Hello World Two Time
+  console.log(replace("This is a very good day", 'day', "night"));
+  // Result: This is a very good night
   
-  console.log(replace("Hello Hello One Time", 'Hello', "Two"));
-  // Result: Two Two One Time
+  console.log(replace("I love sunday. Because  every sunday i meet my parents.", 'sunday', "saturday"));
+  // Result: I love saturday. Because every Saturday i meet my parents.
   // -----------------------------------------
