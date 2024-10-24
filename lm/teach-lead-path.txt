@@ -18,6 +18,12 @@
 4. Что лучше и когда использовать EventLoop(Async I\O) vs Multithreads(Content Switching)
 8. Способы оптимизации бэк приложения.
 
+- Branching strategy:
+    - trunk
+    - merge based
+    - fork based
+    - release based
+
 - Фронт.
 11. Что происходит после ввода строки в адресной строке браузера.
 12. Чем так хорошо Реакт.
