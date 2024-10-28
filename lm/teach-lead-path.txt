@@ -60,7 +60,7 @@
 
 -DevOps.
 14. ClusterIp, NodePort, 
-15. LoadBalancer и Ingress в k8s. Зачем они нужены, в чем отличия.
+15. LoadBalancer и Ingress в k8s. Зачем они нужены, в чем отличия. (они снаруже кластера, или внутри?)
 16. Что такое прогресивная поставка, какие тулзы знаете(canary, blue green deployments, rollout updates)
 17. Что такое канареечное развертование, какие способы реализации знаете.(Fagger,Argo Rollouts)
 
