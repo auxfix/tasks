@@ -30,6 +30,18 @@
         (REST, SOAP, graphQl, gRTC)
     
 3. Предпочтительный стэк технологий(фронт, бэк). Почему?
+
+ - or - 
+
+3.1.  Бэк, дизайн.
+    - Если бы вы планировали новый прокект, какой фреймворк\стек выбрали бы для бэка?(node,Java,ASP.net)
+      почему?(social media platform for example, 10.000 rps, facebook for example has 75 mln rps)
+    - Какой для фронт-энда. Почему?
+    - Как относитесь к FullStack фреймворкам таким как Next, Nuxt, Remix.
+
+
+4.(-1) Вопрос, про провальную архитектуру Node.JS.
+
 4. Что лучше и когда использовать EventLoop(Async I\O) vs Multithreads(Content Switching)
 8. Способы оптимизации бэк приложения.
 
